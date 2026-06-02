@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Masterpiece — Admin Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="glass-bg"></div>
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
+
+  <div class="admin-container">
+    <header class="admin-header">
+      <div class="header-logo">
+        <span class="gold-text">✦</span> Admin Console
+      </div>
+      <div class="header-status">
+        <span class="status-indicator live"></span> Project Active
+      </div>
+    </header>
+
+    <div class="admin-grid">
+      <!-- STATS SECTION -->
+      <section class="admin-card stats-card">
+        <h2 class="card-title">Development Metrics</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-val" id="val-hours">0</div>
+            <div class="stat-lbl">Hours of Craft</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" id="val-lines">0</div>
+            <div class="stat-lbl">Lines of Code</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" id="val-memories">16</div>
+            <div class="stat-lbl">Memory Stars</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" id="val-target">2005</div>
+            <div class="stat-lbl">Year of Birth</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFIG / EDIT WISHES -->
+      <section class="admin-card control-card">
+        <h2 class="card-title">Wishes Content Overrides</h2>
+        <p class="card-desc">Modify the text inside wishes cards locally. Changes are saved to localStorage.</p>
+        
+        <form id="wishes-form" onsubmit="saveWishes(event)">
+          <div class="form-group">
+            <label for="mother-wishes-input">Mother's Blessing Text</label>
+            <textarea id="mother-wishes-input" rows="4"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="mohan-wishes-input">Mohan's Message Text</label>
+            <textarea id="mohan-wishes-input" rows="4"></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-save">Save Changes ✦</button>
+            <button type="button" class="btn btn-reset" onclick="resetDefaults()">Reset to Defaults</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- TELEMETRY / PREVIEW -->
+      <section class="admin-card log-card">
+        <h2 class="card-title">Console Activity Logger</h2>
+        <div class="log-container" id="log-terminal">
+          <div class="log-line system">[system] Admin session initialized...</div>
+          <div class="log-line system">[system] Reading repository configuration...</div>
+          <div class="log-line success">[ready] Cinematic Birthday experience active.</div>
+        </div>
+        <div class="card-footer">
+          <a href="../index.html" class="btn btn-preview" target="_blank">Launch Live Preview ↗</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
